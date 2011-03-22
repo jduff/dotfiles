@@ -2,16 +2,17 @@
 alias ..='cd ..'
 
 # ls
-alias ls="ls -F"
+alias ls="ls -GF"
 alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
 
 # git
-alias gl='git pull'
+alias gl='git pull --rebase --stat'
+alias ga='git add'
 alias gp='git push'
 alias gd='git diff'
-alias gc='git commit'
+alias gc='git commit -m'
 alias gca='git commit -a'
 alias gco='git checkout'
 alias gb='git branch'
@@ -20,14 +21,20 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
 
 # rails
-alias sc='script/console'
-alias ss='script/server'
-alias sg='script/generate'
+alias rc='rails console'
+alias rs='rails server'
+alias rg='rails generate'
 alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
+
+# other
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias watch="watchr ~/.watchr/rails.watcher"
+alias rsync="rsync --progress"
+alias jekyll="jekyll --pygments --server --auto"
 
 # commands starting with % for pasting from web
 alias %=' '
