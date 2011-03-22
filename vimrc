@@ -14,6 +14,7 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set visualbell
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -30,7 +31,7 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 " Switch wrap off for everything
-set nowrap
+" set nowrap
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -91,9 +92,6 @@ set laststatus=2
 " \ is the leader character
 let mapleader = ","
 
-" Edit the README_FOR_APP (makes :R commands work)
-map <Leader>R :e doc/README_FOR_APP<CR>
-
 " Leader shortcuts for Rails commands
 map <Leader>m :Rmodel 
 map <Leader>c :Rcontroller 
@@ -110,6 +108,30 @@ map <Leader>sc :RScontroller
 map <Leader>sv :RSview 
 map <Leader>su :RSunittest 
 map <Leader>sf :RSfunctionaltest 
+
+map <F6> :NERDTreeToggle<cr>
+map ` :NERDTreeToggle<cr>
+
+" https://wincent.com/blog/2-hours-with-vim
+function! AckGrep(command)
+  cexpr system("ack " . a:command)
+  cw " show quickfix window already
+endfunction
+
+command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
+map <leader>f :Ack<space>
+" previous ack result
+map <leader>[ :cp<CR>
+" next ack result
+map <leader>] :cn<CR>
+
+map <leader>c "+y
+map <leader>v "+p
+map <leader>u :u<CR>
+
+" Command-t settings
+let g:CommandTMatchWindowAtTop=1
+let g:CommandTCancelMap='<Esc>'
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
@@ -133,9 +155,6 @@ vmap D y'>p
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
 vmap P p :call setreg('"', getreg('0')) <CR>
-
-" For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
 
 " No Help, please
 nmap <F1> <Esc>
@@ -192,19 +211,3 @@ set smartcase
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 set tags=./tags;
-
-let g:fuf_splitPathMatching=1
-
-" Open URL
-command -bar -nargs=1 OpenURL :!open <args>
-function! OpenURL()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-  echo s:uri
-  if s:uri != ""
-	  exec "!open \"" . s:uri . "\""
-  else
-	  echo "No URI found in line."
-  endif
-endfunction
-map <Leader>w :call OpenURL()<CR>
-
