@@ -132,6 +132,8 @@ map <leader>u :u<CR>
 " Command-t settings
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTCancelMap='<Esc>'
+"let g:CommandTSelectNextMap='<Down>'
+let g:CommandTSelectPrevMap=['<C-p>', '<C-k>', '<Esc>OA', '<Up>']
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
