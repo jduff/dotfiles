@@ -217,4 +217,3 @@ set tags=./tags;
 " Common command line typos
 cmap W w
 cmap Q q
-cmap E e
