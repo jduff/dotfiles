@@ -4,14 +4,14 @@ if has("gui_running")
   " Name:        railscasts.vim
   " Maintainer:  Ryan Bates
   " License:     MIT
-  
+
   set background=dark
   hi clear
   if exists("syntax_on")
     syntax reset
   endif
   let g:colors_name = "railscasts"
-  
+
   " Colors
   " Brown        #BC9357
   " Dark Blue    #6D9CBD
@@ -20,8 +20,8 @@ if has("gui_running")
   " Light Blue   #CFCFFF
   " Light Green  #A5C160
   " Tan          #FFC66D
-  " Red          #DA4938 
-  
+  " Red          #DA4938
+
   hi Normal     guifg=#E6E1DC guibg=#232323
   hi Cursor     guibg=#FFFFFF
   hi CursorLine guibg=#333435
@@ -33,49 +33,49 @@ if has("gui_running")
   hi Error      guifg=#FFFFFF guibg=#990000
   hi MatchParen guifg=NONE    guibg=#131313
   hi Title      guifg=#E6E1DC
-  
+
   hi Comment    guifg=#BC9357 guibg=NONE     gui=italic
   hi! link Todo Comment
-  
+
   hi String     guifg=#A5C160
   hi! link Number String
   hi! link rubyStringDelimiter String
-  
+
   " nil, self, symbols
   hi Constant guifg=#6D9CBD
-  
+
   " def, end, include, load, require, alias, super, yield, lambda, proc
   hi Define guifg=#CC7733 gui=NONE
   hi! link Include Define
   hi! link Keyword Define
   hi! link Macro Define
-  
+
   " #{foo}, <%= bar %>
   hi Delimiter guifg=#509E50
   " hi erubyDelimiter guifg=NONE
-  
+
   " function name (after def)
   hi Function guifg=#FFC66D gui=NONE
-  
+
   "@var, @@var, $var
   hi Identifier guifg=#CFCFFF gui=NONE
-  
+
   " #if, #else, #endif
-  
+
   " case, begin, do, for, if, unless, while, until, else
   hi Statement guifg=#CC7733 gui=NONE
   hi! link PreProc Statement
   hi! link PreCondit Statement
-  
+
   " SomeClassName
   hi Type guifg=NONE gui=NONE
-  
+
   " has_many, respond_to, params
   hi railsMethod guifg=#DA4938 gui=NONE
-  
+
   hi DiffAdd guifg=#E6E1DC guibg=#144212
   hi DiffDelete guifg=#E6E1DC guibg=#660000
-  
+
   hi xmlTag guifg=#E8BF6A
   hi! link xmlTagName  xmlTag
   hi! link xmlEndTag   xmlTag
@@ -84,7 +84,7 @@ if has("gui_running")
   hi! link htmlTagName xmlTagName
   hi! link htmlEndTag  xmlEndTag
   hi! link htmlArg     xmlArg
-  
+
   " Popup Menu
   " ----------
   " normal item in popup
@@ -131,26 +131,26 @@ else
   "     termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
   "     defbce "on"
   "     term screen-256color-bce
-  
+
   set background=dark
   hi clear
   if exists("syntax_on")
     syntax reset
   endif
-  
+
   let g:colors_name = "railscasts"
-  
+
   hi link htmlTag                     xmlTag
   hi link htmlTagName                 xmlTagName
   hi link htmlEndTag                  xmlEndTag
-  
-  highlight Normal                    guifg=#E6E1DC guibg=#111111 
-  highlight Cursor                    guifg=#000000 ctermfg=0 guibg=#FFFFFF ctermbg=15	
+
+  highlight Normal                    guifg=#E6E1DC guibg=#111111
+  highlight Cursor                    guifg=#000000 ctermfg=0 guibg=#FFFFFF ctermbg=15
   highlight CursorLine                guibg=#000000 ctermbg=233 cterm=NONE
 
   highlight Directory  guifg=#E6E1DC gui=NONE ctermbg=233 ctermfg=107
   highlight LineNr     ctermbg=234 ctermfg=250
-  
+
   highlight Comment                   guifg=#BC9458 ctermfg=180 gui=italic
   highlight Constant                  guifg=#6D9CBE ctermfg=73
   highlight Define                    guifg=#CC7833 ctermfg=173 gui=NONE cterm=NONE
@@ -169,11 +169,11 @@ else
   highlight Title                     guifg=#FFFFFF ctermfg=15
   highlight Type                      guifg=#DA4939 ctermfg=167 gui=NONE cterm=NONE
   highlight Visual                    guibg=#5A647E ctermbg=60
-  
+
   highlight DiffAdd                   guifg=#E6E1DC ctermfg=7 guibg=#519F50 ctermbg=71
   highlight DiffDelete                guifg=#E6E1DC ctermfg=7 guibg=#660000 ctermbg=52
-  highlight Special                   guifg=#DA4939 ctermfg=167 
-  
+  highlight Special                   guifg=#DA4939 ctermfg=167
+
   highlight pythonBuiltin             guifg=#6D9CBE ctermfg=73 gui=NONE cterm=NONE
   highlight rubyBlockParameter        guifg=#FFFFFF ctermfg=15
   hi! link rubyClass Define
