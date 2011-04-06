@@ -47,6 +47,9 @@ if has("autocmd")
   " Enable soft-wrapping for text files
   autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 
+  autocmd FileType html,xml,xsl,php,jsp,eruby let b:closetag_html_style=1
+  autocmd FileType html,xml,xsl,php,jsp,eruby source ~/.vim/scripts/closetag.vim
+
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
