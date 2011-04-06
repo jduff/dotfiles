@@ -186,15 +186,15 @@ else
   highlight rubyPredefinedConstant    guifg=#DA4939 ctermfg=167
   highlight rubyPseudoVariable        guifg=#FFC66D ctermfg=221
   highlight rubyStringDelimiter       guifg=#A5C261 ctermfg=143
-  
+
   highlight xmlTag                    guifg=#E8BF6A ctermfg=179
   highlight xmlTagName                guifg=#E8BF6A ctermfg=179
   highlight xmlEndTag                 guifg=#E8BF6A ctermfg=179
-  
+
   highlight mailSubject               guifg=#A5C261 ctermfg=107
   highlight mailHeaderKey             guifg=#FFC66D ctermfg=221
   highlight mailEmail                 guifg=#A5C261 ctermfg=107 gui=italic cterm=underline
-  
+
   highlight SpellBad                  guifg=#D70000 ctermfg=160 ctermbg=NONE cterm=underline
   highlight SpellRare                 guifg=#D75F87 ctermfg=168 guibg=NONE ctermbg=NONE gui=underline cterm=underline
   highlight SpellCap                  guifg=#D0D0FF ctermfg=189 guibg=NONE ctermbg=NONE gui=underline cterm=underline
@@ -220,3 +220,7 @@ else
     autocmd VimLeave * :!echo -ne "\<Esc>]50;CursorShape=0\x7"
   endif
 end
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
