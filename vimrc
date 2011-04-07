@@ -137,6 +137,7 @@ let g:CommandTMatchWindowAtTop=1
 let g:CommandTCancelMap='<Esc>'
 "let g:CommandTSelectNextMap='<Down>'
 let g:CommandTSelectPrevMap=['<C-p>', '<C-k>', '<Esc>OA', '<Up>']
+map <leader>r :CommandTFlush<CR>
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
