@@ -35,6 +35,7 @@ alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias watch="watchr ~/.watchr/rails.watcher"
 alias rsync="rsync --progress"
 alias jekyll="jekyll --pygments --server --auto"
+alias rt="ruby -Itest"
 
 # commands starting with % for pasting from web
 alias %=' '
