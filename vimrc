@@ -219,6 +219,3 @@ set smartcase
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 set tags=./tags;
 
-" Common command line typos
-cmap W w
-cmap Q q
