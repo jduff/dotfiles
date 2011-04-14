@@ -216,6 +216,7 @@ set ignorecase
 set smartcase
 
 " Tags
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+let g:Tlist_Ctags_Cmd="ctags -R ."
 set tags=./tags;
 
+map <Leader>g :!ctags -R . <CR>
