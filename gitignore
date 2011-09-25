@@ -4,3 +4,5 @@
 .*.swp
 tags
 .rvmrc
+dump.rdb
+_site
