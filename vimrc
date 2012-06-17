@@ -225,7 +225,8 @@ set ignorecase
 set smartcase
 
 " Tags
-let g:Tlist_Ctags_Cmd="ctags -R ."
+" command! Ctr !/usr/local/bin/ctags -R --languages=ruby . ~/.gemdir/
+let g:Tlist_Ctags_Cmd="ctags -R --languages=ruby . ~/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems"
 set tags=./tags;
 
 map <Leader>g :!ctags -R . <CR>
