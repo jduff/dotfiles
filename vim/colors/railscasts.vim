@@ -211,14 +211,6 @@ else
   " thumb of the scrollbar in the popup
   hi PMenuThumb ctermfg=7
 
-
-  if &term =~ "xterm\\|rxvt"
-    " Changes the cursor between a Block and Line when in Insert mode or not.
-    " These escape codes only work in iTerm2
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-    autocmd VimLeave * :!echo -ne "\<Esc>]50;CursorShape=0\x7"
-  endif
 end
 
 " Highlight trailing whitespace
