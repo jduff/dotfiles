@@ -20,6 +20,12 @@ set incsearch		" do incremental searching
 set visualbell
 set directory=~/tmp
 
+" Make vim fast
+set synmaxcol=300
+set ttyfast
+set ttyscroll=3
+set lazyredraw
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
