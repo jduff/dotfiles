@@ -13,10 +13,10 @@ set backspace=indent,eol,start
 
 set nobackup
 set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50 " keep 50 lines of command line history
+set ruler      " show the cursor position all the time
+set showcmd    " display incomplete commands
+set incsearch  " do incremental searching
 set visualbell
 set directory=~/tmp
 
@@ -82,7 +82,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent " always set autoindenting on
 
 endif " has("autocmd")
 
