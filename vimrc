@@ -1,6 +1,7 @@
 " based on http://github.com/jferris/config_files/blob/master/vimrc
 
 call pathogen#infect()
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -139,7 +140,16 @@ let g:CommandTMatchWindowAtTop=1
 let g:CommandTCancelMap='<Esc>'
 "let g:CommandTSelectNextMap='<Down>'
 let g:CommandTSelectPrevMap=['<C-p>', '<C-k>', '<Esc>OA', '<Up>']
-map <leader>r :CommandTFlush<CR>
+"map <leader>r :CommandTFlush<CR>
+
+" Ctrl-p settings
+let g:ctrlp_working_path_mode = 2
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_open_new_file = 'r'
+map <leader>r :CtrlPClearCache<CR>
+map <leader>t :CtrlP<CR>
+
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
