@@ -86,14 +86,6 @@ else
 
 endif " has("autocmd")
 
-" if has("folding")
-  " set foldenable
-  " set foldmethod=syntax
-  " set foldlevel=1
-  " set foldnestmax=2
-  " set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
-" endif
-
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -164,14 +156,6 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
-" Duplicate a selection
-" Visual mode: D
-vmap D y'>p
-
-" Press Shift+P while in visual mode to replace the selection without
-" overwriting the default register
-vmap P p :call setreg('"', getreg('0')) <CR>
-
 " No Help, please
 nmap <F1> <Esc>
 
@@ -185,10 +169,6 @@ imap <C-L> <Space>=><Space>
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-
-" Edit routes
-command! Rroutes :e config/routes.rb
-command! Rschema :e db/schema.rb
 
 " Local config
 if filereadable(".vimrc.local")
