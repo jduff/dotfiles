@@ -152,7 +152,7 @@ map <leader>t :CtrlP<CR>
 
 
 " Hide search highlighting
-map <Leader>h :set invhls <CR>
+nmap <silent> ,/ :nohlsearch<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
