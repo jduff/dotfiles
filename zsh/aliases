@@ -32,11 +32,11 @@ alias rst='touch tmp/restart.txt'
 alias b='bundle exec'
 
 # other
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias watch="watchr ~/.watchr/rails.watcher"
 alias rsync="rsync --progress"
 alias jekyll="jekyll --pygments --server --auto"
 alias rt="ruby -Itest"
+alias zt="zeus tests"
+alias tmux="TERM=screen-256color-bce tmux -2"
 
 # commands starting with % for pasting from web
 alias %=' '
