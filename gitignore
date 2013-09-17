@@ -10,3 +10,7 @@ _site
 .bootstrap
 vendor/src
 .rbenv-vars
+log
+tmp
+
+nb-configuration.xml
