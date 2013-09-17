@@ -9,8 +9,23 @@ set nocompatible
 set mouse=a
 set cb=autoselect
 
+" disable arrow keys
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
+
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
 
 set nobackup
 set nowritebackup
@@ -26,6 +41,31 @@ set synmaxcol=300
 set ttyfast
 set ttyscroll=3
 set lazyredraw
+set noswapfile
+
+au VimResized * exe "normal! \<c-w>="
+nnoremap * *<c-o>
+" Faster Esc
+inoremap jk <esc>
+
+" Align text
+nnoremap <leader>Al :left<cr>
+nnoremap <leader>Ac :center<cr>
+nnoremap <leader>Ar :right<cr>
+vnoremap <leader>Al :left<cr>
+vnoremap <leader>Ac :center<cr>
+vnoremap <leader>Ar :right<cr>
+
+" Git
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gco :Gcheckout<cr>
+nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gm :Gmove<cr>
+nnoremap <leader>gr :Gremove<cr>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -151,6 +191,36 @@ map <leader>r :CtrlPClearCache<CR>
 map <leader>t :CtrlP<CR>
 
 
+let g:path_to_matcher = "/usr/local/bin/matcher"
+
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
+
+let g:ctrlp_match_func = { 'match': 'GoodMatch' }
+
+function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
+
+  " Create a cache file if not yet exists
+  let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
+  if !( filereadable(cachefile) && a:items == readfile(cachefile) )
+    call writefile(a:items, cachefile)
+  endif
+  if !filereadable(cachefile)
+    return []
+  endif
+
+  " a:mmode is currently ignored. In the future, we should probably do
+  " something about that. the matcher behaves like "full-line".
+  let cmd = g:path_to_matcher.' --limit '.a:limit.' --manifest '.cachefile.' '
+  if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
+    let cmd = cmd.'--no-dotfiles '
+  endif
+  let cmd = cmd.a:str
+
+  return split(system(cmd), "\n")
+
+endfunction
+
+
 " Hide search highlighting
 nmap <silent> ,/ :nohlsearch<CR>
 
@@ -213,13 +283,14 @@ set complete=.,t
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
+set spell spelllang=en_us
 
 " Tags
 " command! Ctr !/usr/local/bin/ctags -R --languages=ruby . ~/.gemdir/
-let g:Tlist_Ctags_Cmd="ctags -R --languages=ruby . ~/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems"
+let g:Tlist_Ctags_Cmd="ctags -R --languages=ruby ."
 set tags=./tags;
 
-map <Leader>g :!ctags -R . <CR>
+map <Leader>g :!ctags . <CR>
 
 
 " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
@@ -229,7 +300,7 @@ if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
-  autocmd VimLeave * :!echo -ne "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  "autocmd VimLeave * :!echo -ne "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
