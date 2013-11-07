@@ -9,6 +9,14 @@ set nocompatible
 set mouse=a
 set cb=autoselect
 
+" Some Linux distributions set filetype in /etc/vimrc.
+" Clear filetype flags before changing runtimepath to force Vim to reload them.
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
 " disable arrow keys
 "map <up> <nop>
 "map <down> <nop>
@@ -248,7 +256,7 @@ imap <Tab> <C-N>
 imap <C-L> <Space>=><Space>
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·
+set list listchars=tab:\ \ ,trail:·
 
 " Local config
 if filereadable(".vimrc.local")
@@ -287,8 +295,8 @@ set spell spelllang=en_us
 
 " Tags
 " command! Ctr !/usr/local/bin/ctags -R --languages=ruby . ~/.gemdir/
-let g:Tlist_Ctags_Cmd="ctags -R --languages=ruby ."
-set tags=./tags;
+let g:Tlist_Ctags_Cmd="ctags -R ."
+set tags=tags,gems.tags
 
 map <Leader>g :!ctags . <CR>
 
