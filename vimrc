@@ -49,7 +49,9 @@ set synmaxcol=300
 set ttyfast
 set ttyscroll=3
 set lazyredraw
-set noswapfile
+
+set backupdir=./.backup,/tmp
+set directory=./.backup,/tmp
 
 au VimResized * exe "normal! \<c-w>="
 nnoremap * *<c-o>
