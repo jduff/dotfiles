@@ -6,9 +6,8 @@
 --exclude=vendor
 --exclude=build
 --exclude=libs
-
---language=-html
---language=-javascript
+--exclude=*.html
+--exclude=*.js
 
 --langdef=Go
 --langmap=Go:.go

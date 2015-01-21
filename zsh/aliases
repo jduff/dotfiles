@@ -33,7 +33,7 @@ alias b='bundle exec'
 
 # other
 alias rsync="rsync --progress"
-alias rt="ruby -Itest"
+alias rt="bundle exec ruby -Itest"
 alias zt="zeus tests"
 alias tmux="TERM=screen-256color-bce tmux -2"
 

@@ -42,7 +42,5 @@ source $ZSH/oh-my-zsh.sh
 . ~/.zsh/aliases
 . ~/.zsh/completion
 
-source /opt/boxen/env.sh
-
 # use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
