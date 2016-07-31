@@ -1,0 +1,23 @@
+[user]
+name = John Duff
+email = duff.john@gmail.com
+
+[color]
+ui = true
+grep = auto
+
+[core]
+excludesFile=~/.global_gitignore
+
+[alias]
+lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[push]
+default = nothing
+
+[grep]
+lineNumber = true
+patternType = perl
+
+[include]
+path = ~/.gitconfig.local
