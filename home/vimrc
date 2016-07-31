@@ -15,7 +15,6 @@ call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('dkprice/vim-easygrep')
-"call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('/usr/local/opt/fzf')
 call dein#add('junegunn/fzf.vim')
 
@@ -66,6 +65,9 @@ set ruler
 set tabstop=2 " Tabs are 2 spaces
 set backspace=2 " Backspace deletes 2 spaces
 set shiftwidth=2 " Even if there are tabs, preview as 2 spaces
+
+set number
+set clipboard=unnamed
 
 set list " Highlight trailings, stolen from @teoljungberg
 set listchars=tab:>-,trail:.,extends:>,precedes:<
