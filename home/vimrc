@@ -30,6 +30,8 @@ call dein#add('vim-ruby/vim-ruby')
 call dein#add('kchmck/vim-coffee-script')
 call dein#add('pangloss/vim-javascript')
 call dein#add('fatih/vim-go')
+call dein#add('nvie/vim-flake8')
+call dein#add('davidhalter/jedi-vim')
 
 if dein#check_install()
   call dein#install()
@@ -47,6 +49,7 @@ set undodir=~/.vim/undo
 set noswapfile
 set nobackup
 
+let python_highlight_all=1
 syntax enable
 set background=dark " Set dark solarized theme
 colorscheme solarized
@@ -84,6 +87,7 @@ map <leader>t :Files<CR>
 " NERDTree
 map ` :NERDTreeToggle<cr>
 map <leader>l :NERDTreeFind<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 " Git
 map <leader>gs :Gstatus<CR>
@@ -93,6 +97,8 @@ map <leader>gd :Gdiff<CR>
 map <leader>gs :Gstatus<CR>
 
 au BufNewFile,BufRead *.ejson set filetype=json
+
+au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 autoindent fileformat=unix
 
 autocmd BufNewFile,BufRead *.md,*.markdown set spell
 
@@ -112,6 +118,17 @@ map <silent> F <plug>EgMapGrepCurrentWord_v
 vmap <silent> F <plug>EgMapGrepSelection_v
 
 let g:EasyGrepRecursive=1
+
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
