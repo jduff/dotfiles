@@ -83,6 +83,7 @@ set backspace=indent,eol,start
 let g:fzf_buffers_jump = 1
 map <C-f> <plug>(fzf-complete-line)
 map <leader>t :Files<CR>
+map <leader>g :Tags<CR>
 
 " NERDTree
 map ` :NERDTreeToggle<cr>
