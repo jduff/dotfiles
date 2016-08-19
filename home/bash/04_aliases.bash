@@ -1,11 +1,14 @@
 #!/bin/bash
 
-alias b='bundle exec'
-
 # git
 alias gs='git status'
 alias gc='git commit -m'
 alias ga='git add'
+
+# ruby
+
+alias b='bundle exec'
+alias rt='b ruby -Itest'
 
 if ls --version | grep -q GNU; then
   eval `dircolors ~/.dir_colors`
