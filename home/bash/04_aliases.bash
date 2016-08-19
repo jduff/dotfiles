@@ -18,8 +18,8 @@ else
 fi
 
 if [[ -d ~/.chef ]]; then
-  knife() {(
+  function knife() {(
     [[ -f /opt/dev/dev.sh ]] && source /opt/dev/dev.sh
-    cd ~/.chef && BUNDLE_GEMFILE=~/.chef/Gemfile b knife "$@"
+    cd ~/.chef && BUNDLE_GEMFILE=~/.chef/Gemfile bundle exec knife "$@"
   )}
 fi
