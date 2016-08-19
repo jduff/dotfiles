@@ -111,7 +111,7 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml normal zR
 
 " Search
-command! -nargs=+ Search silent execute "Grep <args> ." | redraw! | cw
+command! -nargs=+ Search silent execute "Grep <args>" | redraw! | cw
 nnoremap <leader>f :Search<space>
 
 " bind F to grep for the word under the cursor
