@@ -120,6 +120,7 @@ vmap <silent> F <plug>EgMapGrepSelection_v
 
 let g:EasyGrepRecursive=1
 
+map <C-f> <PageDown>
 
 "python with virtualenv support
 py << EOF
