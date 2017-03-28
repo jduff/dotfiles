@@ -4,10 +4,10 @@ if [[ -d /usr/local/bin ]]; then
   export PATH="/usr/local/bin:$PATH"
 fi
 
-export GOPATH=~/src/go
+export GOPATH="$HOME/go"
 
 if [[ -d "${GOPATH}" ]]; then
-  export PATH="$PATH:$GOPATH/bin"
+  export PATH="$GOPATH/bin:$PATH"
 fi
 
 if [[ -d /usr/local/opt/coreutils/libexec/gnubin ]]; then
