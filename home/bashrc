@@ -4,11 +4,6 @@ for file in ~/.bash/*.bash; do
   source "$file"
 done
 
-# load dev, but only if present and the shell is interactive
-if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
-  source /opt/dev/dev.sh
-fi
-
 # source chruby if it exists
 if [ -f /usr/local/share/chruby/chruby.sh ]; then
   source /usr/local/share/chruby/chruby.sh
