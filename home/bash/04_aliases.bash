@@ -6,8 +6,8 @@ alias gc='git commit -m'
 alias ga='git add'
 
 # ruby
-
-alias b='bundle exec'
+alias bx='bundle exec'
+alias br='bin/rails'
 alias rt='b ruby -Itest'
 
 if ls --version | grep -q GNU; then
