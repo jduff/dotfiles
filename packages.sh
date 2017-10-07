@@ -16,6 +16,9 @@ brew install vim
 brew install fzf
 brew install python
 brew install ctags
+brew install heroku
+brew install postres
+brew services # Installs and sets up homebrew services manager
 
 # Casks
 brew cask install iterm2
@@ -26,6 +29,7 @@ brew cask install 1password
 brew cask install dropbox
 brew cask install evernote # I know, I know...
 brew cask install skitch
+brew cask install pgadmin4
 
 # Vim plugin manager
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
