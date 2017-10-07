@@ -19,10 +19,3 @@ if ls --version | grep -q GNU; then
 else
   alias ls='ls -G'
 fi
-
-if [[ -d ~/.chef ]]; then
-  function knife() {(
-    [[ -f /opt/dev/dev.sh ]] && source /opt/dev/dev.sh
-    cd ~/.chef && BUNDLE_GEMFILE=~/.chef/Gemfile bundle exec knife "$@"
-  )}
-fi
