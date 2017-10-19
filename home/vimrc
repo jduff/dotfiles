@@ -127,6 +127,10 @@ map <C-f> <PageDown>
 " closetag config
 let g:closetag_filenames = '*.html,*.html.erb,*.xhtml,*.phtml'
 
+" macros
+nmap \p :set paste!<CR>:set paste?<CR>
+nmap \s :setlocal invspell<CR>
+
 "python with virtualenv support
 py << EOF
 import os
