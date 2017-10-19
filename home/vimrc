@@ -22,6 +22,7 @@ call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-unimpaired')
 call dein#add('tpope/vim-commentary')
+call dein#add('alvan/vim-closetag')
 
 " Languages
 call dein#add('gabrielelana/vim-markdown')
@@ -121,6 +122,9 @@ vmap <silent> F <plug>EgMapGrepSelection_v
 let g:EasyGrepRecursive=1
 
 map <C-f> <PageDown>
+
+" closetag config
+let g:closetag_filenames = '*.html,*.html.erb,*.xhtml,*.phtml'
 
 "python with virtualenv support
 py << EOF
