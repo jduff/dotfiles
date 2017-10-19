@@ -23,6 +23,7 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-unimpaired')
 call dein#add('tpope/vim-commentary')
 call dein#add('alvan/vim-closetag')
+call dein#add('tpope/vim-ragtag')
 
 " Languages
 call dein#add('gabrielelana/vim-markdown')
