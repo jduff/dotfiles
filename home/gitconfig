@@ -24,3 +24,6 @@ pretty = format:%C(auto)%h %C(blue)%aN %Creset%s %C(green)(%ar)
 
 [init]
 templatedir = ~/.git_template
+
+[alias]
+ctags = !.git/hooks/ctags
