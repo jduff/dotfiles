@@ -14,6 +14,7 @@ brew install git
 brew install coreutils
 brew install vim
 brew install fzf
+brew install the_silver_searcher
 brew install python
 brew install ctags
 brew install heroku
