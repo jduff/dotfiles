@@ -12,7 +12,7 @@ brew install caskroom/cask/brew-cask
 brew install chruby
 brew install git
 brew install coreutils
-brew install vim
+brew install vim --with-python3
 brew install fzf
 brew install the_silver_searcher
 brew install python
@@ -36,5 +36,8 @@ brew cask install pgadmin4
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.vim/bundle/
 
+# deoplete dependency
+pip3 install neovim
+
 # Python Autocomplete
-pip install jedi
+pip3 install jedi

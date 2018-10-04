@@ -34,6 +34,13 @@ call dein#add('pangloss/vim-javascript')
 call dein#add('fatih/vim-go')
 call dein#add('nvie/vim-flake8')
 call dein#add('davidhalter/jedi-vim')
+call dein#add('w0rp/ale')
+call dein#add('Shougo/deoplete.nvim')
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+call dein#add('steelsojka/deoplete-flow')
 
 if dein#check_install()
   call dein#install()
@@ -44,6 +51,8 @@ call dein#end()
 
 filetype plugin indent on
 
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#flow#flow_bin = 'flow'
 
 " Allow editing crontabs http://vim.wikia.com/wiki/Editing_crontab
 set backupskip=/tmp/*,/private/tmp/* "
@@ -92,6 +101,10 @@ map ` :NERDTreeToggle<cr>
 map <leader>l :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
+" Ale
+let g:ale_fixers = { 'javascript': ['eslint'] }
+nmap <leader>d <Plug>(ale_fix)
+
 " Git
 map <leader>gs :Gstatus<CR>
 map <leader>gc :Gcommit<CR>
@@ -130,16 +143,6 @@ let g:closetag_filenames = '*.html,*.html.erb,*.xhtml,*.phtml'
 " macros
 nmap \p :set paste!<CR>:set paste?<CR>
 nmap \s :setlocal invspell<CR>
-
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
