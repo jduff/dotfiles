@@ -7,7 +7,11 @@ done
 # source chruby if it exists
 if [ -f /usr/local/share/chruby/chruby.sh ]; then
   source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
 fi
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 # use .localrc for settings specific to one system
 if [ -f ~/.localrc ]; then
