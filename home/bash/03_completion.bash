@@ -38,3 +38,18 @@ _complete_ssh_hosts ()
         return 0
 }
 complete -F _complete_ssh_hosts ssh
+
+function b() {
+  bin/$@
+}
+
+_b_completions()
+{
+  if [ "${#COMP_WORDS[@]}" != "2" ]; then
+    return
+  fi
+
+  COMPREPLY=($(compgen -W "$(find bin -type f -perm +111 | sed 's/bin\///')" -- "${COMP_WORDS[1]}"))
+}
+
+complete -F _b_completions b

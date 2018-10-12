@@ -9,21 +9,6 @@ alias ga='git add'
 alias bx='bundle exec'
 alias br='bin/rails'
 
-function b() {
-  bin/$1
-}
-
-_b_completions()
-{
-  if [ "${#COMP_WORDS[@]}" != "2" ]; then
-    return
-  fi
-
-  COMPREPLY=($(compgen -W "$(find bin -type f -perm +111 | sed 's/bin\///')" -- "${COMP_WORDS[1]}"))
-}
-
-complete -F _b_completions b
-
 # unity
 alias unity='open -na Unity --args -force-metal'
 
