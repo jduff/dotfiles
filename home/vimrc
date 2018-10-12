@@ -1,7 +1,9 @@
 " BASIC
 set nocompatible " No vi compatility, this first because it resets some options
 set mouse=a
-set cb=autoselect
+if !has('nvim')
+  set cb=autoselect
+endif
 let mapleader="," " Mapleader
 filetype off
 set encoding=utf-8
@@ -50,6 +52,22 @@ endif
 call dein#end()
 
 filetype plugin indent on
+
+" deplete config
+call deoplete#custom#option({
+      \ 'auto_complete': v:false,
+      \ 'max_list': 20
+      \ })
+
+" Some completion on tab
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#flow#flow_bin = 'flow'
