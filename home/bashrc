@@ -1,19 +1,25 @@
 #!/bin/bash
 
-for file in ~/.bash/*.bash; do
-  source "$file"
-done
-
 # source chruby if it exists
 if [ -f /usr/local/share/chruby/chruby.sh ]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
 fi
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+
+for file in ~/.bash/*.bash; do
+  source "$file"
+done
+
+# Add both chruby and nvm autoswitch commands
+trap -- '[[ "$BASH_COMMAND" != "$PROMPT_COMMAND" ]] && { chruby_auto; nvm_auto; }' DEBUG
 
 # use .localrc for settings specific to one system
 if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
