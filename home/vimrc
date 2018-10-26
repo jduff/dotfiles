@@ -121,6 +121,9 @@ map <leader>l :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
 " Ale
+let g:ale_cache_executable_check_failures = 1
+let g:ale_sign_column_always= 1
+let g:ale_lint_delay = 500
 let g:ale_fixers = { 'javascript': ['eslint'] }
 nmap <leader>d <Plug>(ale_fix)
 
