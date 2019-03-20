@@ -12,9 +12,4 @@ alias br='bin/rails'
 # unity
 alias unity='open -na Unity --args -force-metal'
 
-if ls --version | grep -q GNU; then
-  eval `dircolors ~/.dir_colors`
-  alias ls='ls --color=auto'
-else
-  alias ls='ls -G'
-fi
+alias ls='ls -G'
