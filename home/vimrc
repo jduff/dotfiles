@@ -16,7 +16,7 @@ call dein#begin('~/.vim/bundle')
 call dein#add('Shougo/dein.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('altercation/vim-colors-solarized')
-call dein#add('dkprice/vim-easygrep')
+call dein#add('jremmen/vim-ripgrep')
 call dein#add('/usr/local/opt/fzf')
 call dein#add('junegunn/fzf.vim')
 
@@ -92,6 +92,7 @@ set smartindent   " Be smart about indentation
 set expandtab     " Tabs are spaces
 set smarttab
 set shell=$SHELL\ -l  " load shell for ruby version etc.
+set shell=bash\ --login
 set ruler
 
 set tabstop=2 " Tabs are 2 spaces
@@ -147,14 +148,8 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml normal zR
 
 " Search
-command! -nargs=+ Search silent execute "Grep <args>" | redraw! | cw
+command! -nargs=+ Search silent execute 'Rg <args>' | redraw! | cw
 nnoremap <leader>f :Search<space>
-
-" bind F to grep for the word under the cursor
-map <silent> F <plug>EgMapGrepCurrentWord_v
-vmap <silent> F <plug>EgMapGrepSelection_v
-
-let g:EasyGrepRecursive=1
 
 map <C-f> <PageDown>
 
