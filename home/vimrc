@@ -27,6 +27,8 @@ call dein#add('tpope/vim-commentary')
 call dein#add('alvan/vim-closetag')
 call dein#add('tpope/vim-ragtag')
 
+call dein#add('luochen1990/rainbow')
+
 " Languages
 call dein#add('gabrielelana/vim-markdown')
 call dein#add('tpope/vim-rails')
@@ -71,6 +73,8 @@ endfunction"}}}
 let g:deoplete#sources#flow#flow_bin = 'flow'
 let g:deoplete#enable_at_startup = 0
 autocmd InsertEnter * call deoplete#enable()
+
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " Allow editing crontabs http://vim.wikia.com/wiki/Editing_crontab
 set backupskip=/tmp/*,/private/tmp/* "
