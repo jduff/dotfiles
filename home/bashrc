@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # source chruby if it exists
 if [ -f /usr/local/share/chruby/chruby.sh ]; then
   source /usr/local/share/chruby/chruby.sh
