@@ -98,8 +98,7 @@ set incsearch     " Search as you type
 set smartindent   " Be smart about indentation
 set expandtab     " Tabs are spaces
 set smarttab
-set shell=$SHELL\ -l  " load shell for ruby version etc.
-set shell=bash\ --login
+set shell=$SHELL  " load shell for ruby version etc.
 set ruler
 
 set tabstop=2 " Tabs are 2 spaces
