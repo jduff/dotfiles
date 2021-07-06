@@ -151,9 +151,6 @@ autocmd FileType go,gitcommit,qf,gitset setlocal nolist " Go fmt will use tabs
 
 set wildignore+=.git/**,public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/images/**,_site/**,home/.vim/bundle/**,**/.gitkeep,**/.DS_Store,**/*.netrw*,node_modules/*
 
-autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
-autocmd Syntax c,cpp,vim,xml,html,xhtml normal zR
-
 " Search
 command! -nargs=+ Search silent execute 'Rg <args>' | redraw! | cw
 nnoremap <leader>f :Search<space>
