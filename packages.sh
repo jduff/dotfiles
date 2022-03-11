@@ -13,6 +13,7 @@ brew install chruby
 brew install git
 brew install coreutils
 brew install vim --with-python3
+brew install neovim
 brew install fzf
 brew install the_silver_searcher
 brew install python
@@ -32,12 +33,13 @@ brew cask install evernote # I know, I know...
 brew cask install skitch
 brew cask install pgadmin4
 
-# Vim plugin manager
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.vim/bundle/
+# Vim-plug vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# deoplete dependency
-pip3 install neovim
+# Vim-plug nvim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Python Autocomplete
 pip3 install jedi

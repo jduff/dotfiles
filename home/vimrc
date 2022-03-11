@@ -9,73 +9,52 @@ filetype off
 set encoding=utf-8
 set history=1000  " Keep more history, default is 20
 
-set runtimepath^=~/.vim/bundle/repos/github.com/Shougo/dein.vim
-
-call dein#begin('~/.vim/bundle')
-
-call dein#add('Shougo/dein.vim')
-call dein#add('scrooloose/nerdtree')
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('jremmen/vim-ripgrep')
-call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
-call dein#add('junegunn/fzf.vim')
-
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-unimpaired')
-call dein#add('tpope/vim-commentary')
-call dein#add('alvan/vim-closetag')
-call dein#add('tpope/vim-ragtag')
-
-call dein#add('luochen1990/rainbow')
-
-" Languages
-call dein#add('gabrielelana/vim-markdown')
-call dein#add('tpope/vim-rails')
-call dein#add('vim-ruby/vim-ruby')
-call dein#add('pangloss/vim-javascript')
-call dein#add('leafgarland/typescript-vim')
-call dein#add('MaxMEllon/vim-jsx-pretty')
-call dein#add('peitalin/vim-jsx-typescript')
-call dein#add('fatih/vim-go')
-call dein#add('nvie/vim-flake8')
-call dein#add('davidhalter/jedi-vim')
-call dein#add('w0rp/ale')
-call dein#add('Shougo/deoplete.nvim')
-if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-endif
-call dein#add('steelsojka/deoplete-flow')
-
-if dein#check_install()
-  call dein#install()
-  let pluginsExist=1
+" Install vim-plug if it's missing
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call dein#end()
+call plug#begin()
+
+ Plug 'altercation/vim-colors-solarized'
+
+ Plug 'scrooloose/nerdtree'
+ Plug 'jremmen/vim-ripgrep'
+ Plug 'junegunn/fzf', { 'build': './install', 'merged': 0 }
+ Plug 'junegunn/fzf.vim'
+
+ Plug 'tpope/vim-endwise'
+ Plug 'tpope/vim-fugitive'
+ Plug 'tpope/vim-unimpaired'
+ Plug 'tpope/vim-commentary'
+ Plug 'alvan/vim-closetag'
+ Plug 'tpope/vim-ragtag'
+
+ Plug 'luochen1990/rainbow'
+
+ " Languages
+ Plug 'gabrielelana/vim-markdown'
+ Plug 'tpope/vim-rails'
+ Plug 'vim-ruby/vim-ruby'
+ Plug 'pangloss/vim-javascript'
+ Plug 'leafgarland/typescript-vim'
+ Plug 'MaxMEllon/vim-jsx-pretty'
+ Plug 'peitalin/vim-jsx-typescript'
+ Plug 'fatih/vim-go'
+ Plug 'nvie/vim-flake8'
+ Plug 'davidhalter/jedi-vim'
+ Plug 'w0rp/ale'
+
+ if !has('nvim')
+   Plug 'roxma/nvim-yarp'
+   Plug 'roxma/vim-hug-neovim-rpc'
+ endif
+
+call plug#end()
 
 filetype plugin indent on
-
-" deplete config
-call deoplete#custom#option({
-      \ 'auto_complete': v:false,
-      \ 'max_list': 20
-      \ })
-
-" Some completion on tab
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
-
-let g:deoplete#sources#flow#flow_bin = 'flow'
-let g:deoplete#enable_at_startup = 0
-autocmd InsertEnter * call deoplete#enable()
 
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
