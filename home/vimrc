@@ -46,13 +46,13 @@ call plug#begin()
  Plug 'nvie/vim-flake8'
  Plug 'davidhalter/jedi-vim'
  Plug 'w0rp/ale'
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
  if !has('nvim')
    Plug 'roxma/nvim-yarp'
    Plug 'roxma/vim-hug-neovim-rpc'
  else
    Plug 'github/copilot.vim'
-   Plug 'neoclide/coc.nvim', {'branch': 'release'}
  endif
 
 call plug#end()
@@ -68,7 +68,7 @@ set noswapfile
 set nobackup
 
 autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#13354A
-autocmd ColorScheme * hi CocFloating ctermbg=256 guibg=#00000
+autocmd ColorScheme * hi CocFloating ctermbg=256 guibg=#66666
 
 let python_highlight_all=1
 syntax enable
