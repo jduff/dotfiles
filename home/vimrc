@@ -120,11 +120,10 @@ let g:ale_fixers = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
 nmap <leader>d <Plug>(ale_fix)
 
 " Git
-map <leader>gs :Gstatus<CR>
-map <leader>gc :Gcommit<CR>
-map <leader>gb :Gblame<CR>
-map <leader>gd :Gdiff<CR>
-map <leader>gs :Gstatus<CR>
+map <leader>gs :Git status<CR>
+map <leader>gc :Git commit<CR>
+map <leader>gb :Git blame<CR>
+map <leader>gd :Git diff<CR>
 
 au BufNewFile,BufRead *.ejson set filetype=json
 
