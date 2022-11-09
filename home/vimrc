@@ -68,7 +68,7 @@ set noswapfile
 set nobackup
 
 autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#13354A
-autocmd ColorScheme * hi CocFloating ctermbg=256 guibg=#66666
+autocmd ColorScheme * hi CocFloating ctermbg=256 guibg=SlateGray
 
 let python_highlight_all=1
 syntax enable
