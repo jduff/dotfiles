@@ -1,12 +1,23 @@
 #!/bin/bash
 
-for file in /usr/local/etc/bash_completion.d/* ; do
-  source "$file"
-done
+if [ -d "/usr/local/etc/bash_completion.d" ]; then
+  for file in /usr/local/etc/bash_completion.d/* ; do
+    source "$file"
+  done
+fi
+
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # fzf completion
-source /usr/local/opt/fzf/shell/key-bindings.bash
-source /usr/local/opt/fzf/shell/completion.bash
+if [ -f /usr/local/opt/fzf/shell/key-bindings.bash ]; then
+  source /usr/local/opt/fzf/shell/key-bindings.bash
+  source /usr/local/opt/fzf/shell/completion.bash
+fi
+
+if [ -f /opt/homebrew/opt/fzf/shell/key-bindings.bash ]; then
+  source /opt/homebrew/opt/fzf/shell/key-bindings.bash
+  source /opt/homebrew/opt/fzf/shell/completion.bash
+fi
 
 # fzf + ag configuration
 if hash fzf 2>/dev/null && hash ag 2>/dev/null; then
