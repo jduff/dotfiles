@@ -4,6 +4,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # source chruby if it exists
 if [ -f /usr/local/share/chruby/chruby.sh ]; then
   source /usr/local/share/chruby/chruby.sh
