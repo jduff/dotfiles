@@ -116,7 +116,7 @@ let g:ale_cache_executable_check_failures = 1
 let g:ale_sign_column_always= 1
 let g:ale_lint_delay = 200
 let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_fixers = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
+let g:ale_fixers = { 'javascript': ['eslint'], 'ruby': ['rubocop'], 'typescript': ['eslint'] }
 nmap <leader>d <Plug>(ale_fix)
 
 " Git
